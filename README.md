@@ -1,26 +1,22 @@
+# Employee Management System
 
-Bu proje, çalışan bilgilerinin yönetimini sağlayan bir Spring Boot uygulamasıdır. RESTful API'ler aracılığıyla çalışan ekleme, silme, güncelleme ve listeleme işlemlerini gerçekleştirebilirsiniz.
+## 🚀 Proje Hakkında
+Bu proje, modern bir çalışan yönetim sistemidir. Spring Boot kullanılarak geliştirilmiş bir REST API uygulamasıdır.
 
-## 🚀 Özellikler
-
-- Çalışan ekleme
-- Çalışan bilgilerini güncelleme
-- Çalışan silme
-- Tüm çalışanları listeleme
-- ID'ye göre çalışan sorgulama
-
-## 🛠 Teknolojiler
-
+## 💻 Teknolojiler
 - Java 24
 - Spring Boot
 - Spring Data JPA
-- PostgreSQL
+- Jakarta EE
 - Lombok
-- Docker
-
-## 📋 Gereksinimler
-
-- Java 24 veya üzeri
-- Docker
+- H2 Database (Test için)
 - Maven
-- PostgreSQL
+
+## 🛠 Özellikler
+- Çalışan ekleme, silme, güncelleme ve listeleme
+- Departman yönetimi
+- Validation kontrolleri
+- RESTful API endpoints
+
+## 🔧 Kurulum
+1. Projeyi klonlayın:
