@@ -2,11 +2,13 @@ package org.algorithmartisans.hasan.service.Impl;
 
 import lombok.RequiredArgsConstructor;
 import org.algorithmartisans.hasan.dto.request.EmployeeRequest;
+import org.algorithmartisans.hasan.dto.response.DepartmentResponse;
 import org.algorithmartisans.hasan.dto.response.EmployeeResponse;
 import org.algorithmartisans.hasan.exception.model.BusinessException;
 import org.algorithmartisans.hasan.exception.model.NotFoundException;
 import org.algorithmartisans.hasan.model.Employee;
-import org.algorithmartisans.hasan.repository.IEmployeeRepository;
+import org.algorithmartisans.hasan.repository.DepartmentRepository;
+import org.algorithmartisans.hasan.repository.EmployeeRepository;
 import org.algorithmartisans.hasan.service.IEmployeeService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmployeeServiceImpl implements IEmployeeService {
 
-    private final IEmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
+    private final DepartmentRepository departmentRepository;
 
     @Override
     public boolean addEmployee(EmployeeRequest employeeRequest)  throws BusinessException {
@@ -41,8 +44,10 @@ public class EmployeeServiceImpl implements IEmployeeService {
     }
 
     @Override
-    public List<EmployeeResponse> getAllEmployees() {
-        return employeeRepository.findAllEmployee().stream().map(employee -> new EmployeeResponse(employee.getId(), employee.getName(), employee.getLastName())).toList();
+    public List<EmployeeResponse> getAllEmployees() throws BusinessException {
+        return employeeRepository.findAllEmployee().stream().map(employee -> new EmployeeResponse(employee.getId(), employee.getName(), employee.getLastName(),
+                new DepartmentResponse(employee.getDepartment().getId(), employee.getDepartment().getDepartmentName())
+        )).toList();
 
     }
 
@@ -69,7 +74,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
     @Override
     public EmployeeResponse getEmployeeById(Long id) {
 
-        return employeeRepository.findById(id).map(employee -> new EmployeeResponse(employee.getId(), employee.getName(), employee.getLastName())).orElseThrow(() -> new NotFoundException("ID: " + id + " değerine sahip çalışan bulunamadı"));
+        return employeeRepository.findById(id).map(employee -> new EmployeeResponse(employee.getId(), employee.getName(), employee.getLastName(), new DepartmentResponse(employee.getDepartment().getId(), employee.getDepartment().getDepartmentName()))).orElseThrow(() -> new NotFoundException("ID: " + id + " değerine sahip çalışan bulunamadı"));
     }
 
 

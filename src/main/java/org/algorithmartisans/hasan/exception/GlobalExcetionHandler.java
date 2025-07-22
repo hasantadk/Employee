@@ -3,7 +3,6 @@ package org.algorithmartisans.hasan.exception;
 import org.algorithmartisans.hasan.dto.response.ApiErrorResponse;
 import org.algorithmartisans.hasan.exception.model.BusinessException;
 import org.algorithmartisans.hasan.exception.model.NotFoundException;
-import org.algorithmartisans.hasan.exception.model.ValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

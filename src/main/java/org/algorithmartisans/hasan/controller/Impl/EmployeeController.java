@@ -1,7 +1,6 @@
 package org.algorithmartisans.hasan.controller.Impl;
 
 import lombok.RequiredArgsConstructor;
-import org.algorithmartisans.hasan.controller.IEmployeeController;
 import org.algorithmartisans.hasan.dto.request.EmployeeRequest;
 import org.algorithmartisans.hasan.dto.response.EmployeeResponse;
 import org.algorithmartisans.hasan.service.IEmployeeService;
@@ -13,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/employees")
 @RequiredArgsConstructor()
-public class EmployeeController implements IEmployeeController {
+public class EmployeeController implements org.algorithmartisans.hasan.controller.EmployeeController {
     private final IEmployeeService employeeService;
 
     @GetMapping

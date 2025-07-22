@@ -7,11 +7,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class EmployeeResponse {
+@NoArgsConstructor
+public class DepartmentResponse {
     private Long id;
-    private String name;
-    private String lastName;
-    private DepartmentResponse department;
+    private String departmentName;
+
 }

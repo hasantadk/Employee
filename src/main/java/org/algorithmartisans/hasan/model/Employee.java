@@ -11,9 +11,12 @@ import lombok.Setter;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     @Column(name = "name")
     private String name;
     @Column(name = "last_name")
     private String lastName;
+    @ManyToOne
+    @JoinColumn(name="department_id")
+    private Department department;
 }

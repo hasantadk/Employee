@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-public interface IEmployeeController {
+public interface EmployeeController {
     ResponseEntity<List<EmployeeResponse>> getAllEmployees();
 
     ResponseEntity<Boolean> addEmployee(EmployeeRequest employeeRequest);
